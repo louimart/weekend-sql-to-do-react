@@ -21,6 +21,26 @@ You are going to create a 'TO DO' application. This type of application is very 
 * Whether or not a Task is complete should also be stored in the database.
 * Deleting a Task should remove it both from the front end as well as the Database.
 
+<!--SERVER
+    Create SQL Database and Table to hold Tasks List 
+      Store data for {Task Description, Task Status...)
+    Routes
+      GET to call all Tasks
+      POST to create new task
+      PUT to update as "Complete"
+      DELETE to remove tasks from list
+      -->
+
+<!-- CLIENT
+      FRONT END that allows creatign of NEW TASK, Form Inputs & Submit Button
+      Table to display current list of Tasks
+      Creating New Task will render a new list of all current tasks and display to the DOM
+      Add 'COMPLETE' and 'DELETE' buttons to the Tasks
+      CSS - when task is marked complete, visually show that it is complete, 'complete' button to be 'CHECKED OFF'
+      Delete button to remove task from rendered list
+      -->
+
+
 ### Styling
 
 Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:

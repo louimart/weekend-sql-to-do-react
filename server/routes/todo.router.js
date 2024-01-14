@@ -39,6 +39,21 @@ router.post('/', (req, res) => {
   });
 
 // PUT
+router.put('/:id', (req, res) => {
+    const id = parseInt(req.params.id)
+    const updateTask = req.body;
+    const queryText = `UPDATE "weekend-to-do-app" SET "status" = $1 WHERE "id" = $2;`;
+    pool
+        .query(queryText, [updateTask.status, id])
+        .then(() => {
+            res.sendStatus(200);
+          })
+          .catch((err) => {
+            console.log('ERROR:', err);
+            res.sendStatus(500);
+        });
+    });
+
 
 // DELETE
 

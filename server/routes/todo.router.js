@@ -19,8 +19,24 @@ router.get('/', (req, res) => {
         })
 })
 
-
 // POST
+router.post('/', (req, res) => {
+    const newTask = req.body;
+    const sqlText = `INSERT INTO "weekend-to-do-app" ("task", "status")
+                       VALUES ($1, $2)`;
+    // Let sql sanitize your inputs (NO Bobby Drop Tables here!)
+    // the $1, $2, etc get substituted with the values from the array below
+    pool
+      .query(sqlText, [newTask.task, newTask.status])
+      .then((result) => {
+        console.log(`Added new task to the database`, newTask);
+        res.sendStatus(201);
+      })
+      .catch((error) => {
+        console.log(`Error making database query ${sqlText}`, error);
+        res.sendStatus(500); // Good server always responds
+      });
+  });
 
 // PUT
 

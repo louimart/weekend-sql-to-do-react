@@ -22,14 +22,14 @@ You are going to create a 'TO DO' application. This type of application is very 
 * Deleting a Task should remove it both from the front end as well as the Database.
 
 <!--SERVER
-    Create SQL Database and Table to hold Tasks List 
-      Store data for {Task Description, Task Status...)
-    Routes
-      GET to call all Tasks
-      POST to create new task
-      PUT to update as "Complete"
-      DELETE to remove tasks from list
-      -->
+DONE - Create SQL Database and Table to hold Tasks List 
+DONE - Store data for {Task Description, Task Status...)
+DONE - Routes
+        GET to call all Tasks
+        POST to create new task
+        PUT to update as "Complete"
+        DELETE to remove tasks from list
+        -->
 
 <!-- CLIENT
       FRONT END that allows creatign of NEW TASK, Form Inputs & Submit Button

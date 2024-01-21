@@ -4,7 +4,7 @@ const pool = require('../modules/pool.js');
 
 // GET
 router.get('/', (req, res) => {
-    const dbQuery = 'SELECT * FROM "weekend-to-do-app";';
+    const dbQuery = 'SELECT * FROM "weekend-to-do-app" ORDER BY "task" ASC;';
 
     pool
         .query(dbQuery)
@@ -22,12 +22,12 @@ router.get('/', (req, res) => {
 // POST
 router.post('/', (req, res) => {
     const newTask = req.body;
-    const sqlText = `INSERT INTO "weekend-to-do-app" ("task", "status")
-                       VALUES ($1, $2)`;
+    const sqlText = `INSERT INTO "weekend-to-do-app" ("task")
+                       VALUES ($1)`;
     // Let sql sanitize your inputs (NO Bobby Drop Tables here!)
     // the $1, $2, etc get substituted with the values from the array below
     pool
-      .query(sqlText, [newTask.task, newTask.status])
+      .query(sqlText, [newTask.task])
       .then((result) => {
         console.log(`Added new task to the database`, newTask);
         res.sendStatus(201);

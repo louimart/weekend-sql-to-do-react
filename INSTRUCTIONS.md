@@ -32,12 +32,12 @@ DONE - Routes
         -->
 
 <!-- CLIENT
-      FRONT END that allows creatign of NEW TASK, Form Inputs & Submit Button
+DONE - FRONT END that allows creatign of NEW TASK, Form Inputs & Submit Button
 DONE - Table to display current list of Tasks
-      Creating New Task will render a new list of all current tasks and display to the DOM
-      Add 'COMPLETE' and 'DELETE' buttons to the Tasks
+DONE - Creating New Task will render a new list of all current tasks and display to the DOM
+DONE - Add 'COMPLETE' and 'DELETE' buttons to the Tasks
       CSS - when task is marked complete, visually show that it is complete, 'complete' button to be 'CHECKED OFF'
-      Delete button to remove task from rendered list
+Done - Delete button to remove task from rendered list
       -->
 
 

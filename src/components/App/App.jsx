@@ -1,8 +1,12 @@
 import {useState, useEffect} from 'react';
-import { deleteTask, fetchTasks, updateTaskStatus } from '../../todoApi/todo.api';
+import { 
+  deleteTask, 
+  fetchTasks, 
+  updateTaskStatus
+} from '../../todoApi/todo.api';
+import AddTaskForm from '../AddTaskForm/AddTastForm';
 
 function App () {
-
   const [taskList, setTaskList] = useState([
     // { name: 'Unicorn', origin: 'Britain' },
     // { name: 'Sphinx', origin: 'Egypt' },
@@ -59,23 +63,19 @@ function App () {
   return (
     <div>
       <h1>TO DO APP</h1>
+      <AddTaskForm taskRefreshCallBack={refreshTasks}/>
       {/* RENDER LIST of TASKS*/}
       {taskList.map((taskData, dataIndex) => {
         return (
-          <div key={dataIndex}
-          onClick={() => handleClickTaskStatus(taskData.id)}
-          // className={`creature ${
-          //   creatureData.immortal ? 'immortal' : 'normal'
-          // }`}
-          >
+          // className toggles between two css class depending on status True/False
+          <div key={dataIndex} className={`task ${taskData.status ? 'true' : 'false'}`}>
             {/* key prop needs to be a unique value */}
             <h3>{taskData.task}</h3>
-            <p>COMPLETE? {`${taskData.status}`}</p>
+            {/* <p>COMPLETE? {`${taskData.status}`}</p> */}
             {console.log(taskData)}
             {console.log(typeof(taskData.status))}
-            <button onClick={(event) => handleClickDelete(taskData.id)}>
-              Delete
-            </button>
+            <button onClick={() => handleClickTaskStatus(taskData.id)}>{`${taskData.status ? 'DONE' : 'COMPLETE ?'}`}</button>
+            <button onClick={(event) => handleClickDelete(taskData.id)}>X</button>
           </div>
         );
       })}

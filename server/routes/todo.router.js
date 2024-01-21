@@ -42,13 +42,16 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     const id = parseInt(req.params.id)
     const updateTask = req.body;
-    const queryText = `UPDATE "weekend-to-do-app" SET "status" = $1 WHERE "id" = $2;`;
+    const queryText =  `UPDATE "weekend-to-do-app" SET "status" = NOT "status"
+    WHERE "id" = $1;`;
+
     pool
-        .query(queryText, [updateTask.status, id])
+        .query(queryText, [id])
         .then(() => {
             res.sendStatus(200);
           })
           .catch((err) => {
+            console.log(updateTask.status);
             console.log('ERROR:', err);
             res.sendStatus(500);
         });

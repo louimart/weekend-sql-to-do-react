@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { postTask } from "../../todoApi/todo.api";
 
 function AddTaskForm (props) {
@@ -32,14 +31,14 @@ function AddTaskForm (props) {
     return (
         <form onSubmit={handleSubmitTask}>
             <label>
-                <span>New Task:</span>
+                <span>Add New Task:</span>
                 <input
                     id = "task"
                     onChange={(event) => setTaskValue(event.target.value)}
                     value={taskValue}
                 />
             </label>
-            <button type="submit">Save</button>
+            <button type="submit">+</button>
         </form>
     );
 

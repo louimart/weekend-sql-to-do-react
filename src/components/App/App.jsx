@@ -73,15 +73,14 @@ function App () {
             <h3>{taskData.task}</h3>
             {/* <p>COMPLETE? {`${taskData.status}`}</p> */}
             {console.log(taskData)}
-            {console.log(typeof(taskData.status))}
+            {/* {console.log(typeof(taskData.status))} */}
             <button onClick={() => handleClickTaskStatus(taskData.id)}>{`${taskData.status ? 'DONE' : 'COMPLETE ?'}`}</button>
-            <button onClick={(event) => handleClickDelete(taskData.id)}>X</button>
+            <button onClick={() => handleClickDelete(taskData.id)}>X</button>
           </div>
         );
       })}
     </div>
   );
-
 }
 
 export default App

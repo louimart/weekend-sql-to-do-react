@@ -4,7 +4,7 @@ const pool = require('../modules/pool.js');
 
 // GET
 router.get('/', (req, res) => {
-    const dbQuery = 'SELECT * FROM "weekend-to-do-app" ORDER BY "task" ASC;';
+    const dbQuery = 'SELECT * FROM "weekend-to-do-app" ORDER BY "status" ASC;';
 
     pool
         .query(dbQuery)

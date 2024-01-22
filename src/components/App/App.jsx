@@ -6,6 +6,8 @@ import {
 } from '../../todoApi/todo.api';
 import AddTaskForm from '../AddTaskForm/AddTastForm';
 import TaskList from '../TaskList/TaskList';
+import Header from '../Header/Header';
+import './App.css'
 
 function App () {
   const [taskList, setTaskList] = useState([
@@ -60,7 +62,7 @@ function App () {
 
   return (
     <div>
-      <h1>TO DO APP</h1>
+      <Header />
       <AddTaskForm taskRefreshCallBack={refreshTasks}/>
       {/* RENDER LIST of TASKS*/}
       <TaskList 

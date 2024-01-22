@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { postTask } from "../../todoApi/todo.api";
+import Box from '@mui/material/Box'
+import { Button, TextField } from "@mui/material";
 
 function AddTaskForm (props) {
     const [taskValue, setTaskValue] = useState('');
@@ -29,18 +31,66 @@ function AddTaskForm (props) {
     };
 
     return (
+        // <form onSubmit={handleSubmitTask}>
+        //     <label>
+        //         {/* <span>Add New Task:</span> */}
+        //         <input
+        //             id = "task"
+        //             onChange={(event) => setTaskValue(event.target.value)}
+        //             value={taskValue}
+        //             placeholder="add new task"
+        //         />
+        //     </label>
+        //     <button type="submit">+</button>
+        // </form>
         <form onSubmit={handleSubmitTask}>
-            <label>
-                <span>Add New Task:</span>
-                <input
-                    id = "task"
+            <TextField
+                    id = "outlined-basic"
+                    label="New Task"
+                    variant="outlined"
+                    size="small"
+                    sx={{
+                        margin: '10px'
+                    }}
                     onChange={(event) => setTaskValue(event.target.value)}
                     value={taskValue}
+                    // placeholder="add new task"
                 />
-            </label>
-            <button type="submit">+</button>
+
+            {/* <TextField
+                    type="date"
+                    id = "outlined-basic"
+                    variant="outlined"
+                    size="small"
+                    sx={{
+                        margin: '10px'
+                    }}
+                    // onChange={(event) => setTaskValue(event.target.value)}
+                    // value={taskValue}
+                    // placeholder="add new task"
+                    /> */}
+            <Button
+                type="submit"
+                variant="text"
+                size="medium"
+                sx={{margin: '10px'}}
+            >add</Button>
         </form>
-    );
+);
+
+    // return (
+    //     <form onSubmit={handleSubmitTask}>
+    //         <label>
+    //             <span>Add New Task:</span>
+    //             <input
+    //                 id = "task"
+    //                 onChange={(event) => setTaskValue(event.target.value)}
+    //                 value={taskValue}
+    //             />
+    //         </label>
+    //         <button type="submit">+</button>
+    //     </form>
+    // );
 
 }
 

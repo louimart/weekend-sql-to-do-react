@@ -26,3 +26,20 @@ body {
   margin: 50px;
   /* padding: 25px; */
 }
+
+.task-list {
+  margin-top: 50px;
+}
+
+.task-form {
+  /* height: auto;
+  width: auto;
+  background-color: lightgray;
+  position: sticky;
+  top: 5rem; */
+  margin-top: 25px;
+}
+
+footer {
+  margin-top: 50px;
+}

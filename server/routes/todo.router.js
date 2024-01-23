@@ -57,6 +57,23 @@ router.put('/:id', (req, res) => {
         });
     });
 
+// PUT - RESET ALL Tast Status
+router.put('/reset', (req, res) => {
+    const updateTask = req.body;
+    const queryText =  `UPDATE "weekend-to-do-app" SET "status" = FALSE;`
+
+    pool
+        .query(queryText)
+        .then(() => {
+            res.sendStatus(200);
+          })
+          .catch((err) => {
+            console.log(updateTask.status);
+            console.log('ERROR:', err);
+            res.sendStatus(500);
+        });
+    });
+
 // DELETE
 router.delete('/:id', (req, res) => {
     const id = parseInt(req.params.id);

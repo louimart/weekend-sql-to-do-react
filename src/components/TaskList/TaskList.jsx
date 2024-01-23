@@ -36,6 +36,7 @@ function TaskList( {taskList, taskRefreshCallBack} ){
   };
 
     return (
+      <div class="task-list">
       <Grid container spacing={2}
       // direction="column"
       justifyContent="flex-start"
@@ -72,6 +73,7 @@ function TaskList( {taskList, taskRefreshCallBack} ){
           )
         })}
       </Grid>
+      </div>
     );
     };
 

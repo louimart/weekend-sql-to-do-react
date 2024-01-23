@@ -19,3 +19,8 @@ export const updateTaskStatus = (taskId) => {
   // axios PUT call to update Status
   return axios.put(`/api/todo/${taskId}`);
 };
+
+export const resetTaskStatus = (taskStatus) => {
+  // axios PUT call to update Status
+  return axios.put(`/api/todo/reset`, taskStatus);
+};

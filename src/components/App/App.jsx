@@ -2,16 +2,18 @@ import {useState, useEffect} from 'react';
 import { 
   deleteTask, 
   fetchTasks, 
-  updateTaskStatus
+  resetTaskStatus
 } from '../../todoApi/todo.api';
 import AddTaskForm from '../AddTaskForm/AddTastForm';
 import TaskList from '../TaskList/TaskList';
 import Header from '../Header/Header';
 import './App.css'
+import Button from '@mui/material/Button'
+import Chip from '@mui/material/Chip'
 
 function App () {
-  const [taskList, setTaskList] = useState([
-  ]);
+  const [taskList, setTaskList] = useState([]);
+  const [taskStatus, setTaskStatus] = useState([]);
 
   const refreshTasks = () => {
     const taskPromise = fetchTasks();
@@ -59,6 +61,18 @@ function App () {
   //       console.error('ERROR:', err);
   //     });
   // };
+ 
+  // PUT function to RESET task status
+  const handleClickResetTaskStatus = (taskData) => {
+    console.log('RESET button CLICKED')
+    resetTaskStatus(taskData)
+      .then((response) => {
+        refreshTasks();
+      })
+      .catch((err) => {
+        console.error('ERROR:', err);
+      });
+  };
 
   return (
     <div>
@@ -77,6 +91,21 @@ function App () {
           //   <button onClick={() => handleClickDelete(taskData.id)}>X</button>
           // </div>
         // ); */}
+      <footer>
+        <Chip
+          variant="outlined"
+          label="RESET"
+          color="error"
+          sx={{
+            margin: '5px',
+            padding: '5px',
+            filter: 'drop-shadow(5px 5px 5px lightgray)'
+          }}
+          onClick={() => {
+            alert('All TASK STATUS RESET')
+            handleClickResetTaskStatus()}}
+        />
+      </footer>
     </div>
   );
 }

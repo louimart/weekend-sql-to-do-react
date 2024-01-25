@@ -1,17 +1,17 @@
-import {useState, useEffect} from 'react';
-import { 
-  deleteTask, 
-  fetchTasks, 
-  resetTaskStatus
+import { useState, useEffect } from 'react';
+import {
+  deleteTask,
+  fetchTasks,
+  resetTaskStatus,
 } from '../../todoApi/todo.api';
 import AddTaskForm from '../AddTaskForm/AddTastForm';
 import TaskList from '../TaskList/TaskList';
 import Header from '../Header/Header';
-import './App.css'
-import Button from '@mui/material/Button'
-import Chip from '@mui/material/Chip'
+import './App.css';
+import Button from '@mui/material/Button';
+import Chip from '@mui/material/Chip';
 
-function App () {
+function App() {
   const [taskList, setTaskList] = useState([]);
   const [taskStatus, setTaskStatus] = useState([]);
 
@@ -50,7 +50,7 @@ function App () {
   //       console.error('ERROR:', err);
   //     });
   // };
-  
+
   // // PUT function to update task status
   // const handleClickTaskStatus = (id) => {
   //   updateTaskStatus(id)
@@ -61,11 +61,11 @@ function App () {
   //       console.error('ERROR:', err);
   //     });
   // };
- 
+
   // PUT function to RESET task status
-  const handleClickResetTaskStatus = (taskData) => {
-    console.log('RESET button CLICKED')
-    resetTaskStatus(taskData)
+  const handleClickResetTaskStatus = () => {
+    console.log('RESET button CLICKED', taskList);
+    resetTaskStatus(taskList)
       .then((response) => {
         refreshTasks();
       })
@@ -77,13 +77,10 @@ function App () {
   return (
     <div>
       <Header />
-      <AddTaskForm taskRefreshCallBack={refreshTasks}/>
+      <AddTaskForm taskRefreshCallBack={refreshTasks} />
       {/* RENDER LIST of TASKS*/}
-      <TaskList 
-        taskList={taskList}
-        taskRefreshCallBack={refreshTasks}
-      />
-        {/* // return (
+      <TaskList taskList={taskList} taskRefreshCallBack={refreshTasks} />
+      {/* // return (
           // <div key={dataIndex} className={`task ${taskData.status ? 'true' : 'false'}`}>
           //   <h3>{taskData.task}</h3>
           //   {console.log(taskData)}
@@ -99,15 +96,16 @@ function App () {
           sx={{
             margin: '5px',
             padding: '5px',
-            filter: 'drop-shadow(5px 5px 5px lightgray)'
+            filter: 'drop-shadow(5px 5px 5px lightgray)',
           }}
           onClick={() => {
-            alert('All TASK STATUS RESET')
-            handleClickResetTaskStatus()}}
+            alert('All TASK STATUS RESET');
+            handleClickResetTaskStatus();
+          }}
         />
       </footer>
     </div>
   );
 }
 
-export default App
+export default App;

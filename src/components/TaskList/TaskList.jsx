@@ -36,7 +36,7 @@ function TaskList( {taskList, taskRefreshCallBack} ){
   };
 
     return (
-      <div class="task-list">
+      <div className="task-list">
       <Grid container spacing={2}
       // direction="column"
       justifyContent="flex-start"
@@ -50,11 +50,11 @@ function TaskList( {taskList, taskRefreshCallBack} ){
                   // lg={4}
                   key={dataIndex}
                 >
-              <div key={taskData.id}>    
+              <div key={taskData.id}>
                   {/* <h3>{taskData.task}</h3> */}
-                  {console.log('TASK ITEM', taskData)}
-                  {console.log('TASK Index', taskData.id)}
-                  <Chip 
+                  {/* {console.log('TASK ITEM', taskData)}
+                  {console.log('TASK Index', taskData.id)} */}
+                  <Chip
                     // label={`${taskData.status ? taskData.task + ' - DONE' : taskData.task}`}
                     label={`${taskData.task}`}
                     color={`${taskData.status ? "success" : "primary"}`}

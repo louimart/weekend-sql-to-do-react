@@ -8,7 +8,7 @@ function Header() {
     <>
     <h2>things to do ...</h2>
     <span>click <Chip label="task" color="primary"/> to mark complete / </span>
-    <span><Chip onDelete={"x"}/> to delete</span>
+    <span><Chip onDelete={() => "x"}/> to delete</span>
     </>
     );
 }

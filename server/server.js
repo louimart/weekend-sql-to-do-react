@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const todoRouter = require('./routes/todo.router.js');
+const resetRouter = require('./routes/reset.router.js')
 const PORT = process.env.PORT || 5001;
 
 /** ---------- MIDDLEWARE ---------- **/
@@ -9,6 +10,7 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 app.use('/api/todo', todoRouter);
+app.use('/api/reset', resetRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT,  () => {

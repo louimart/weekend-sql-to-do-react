@@ -44,7 +44,7 @@ function AddTaskForm (props) {
         //     <button type="submit">+</button>
         // </form>
         <form
-            class="task-form"
+            className="task-form"
             onSubmit={handleSubmitTask}>
             <TextField
                     id = "outlined-basic"

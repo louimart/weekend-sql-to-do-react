@@ -44,8 +44,8 @@ router.put('/:id', (req, res) => {
   const updateTask = req.body;
   const queryText = `UPDATE "weekend-to-do-app" SET "status" = NOT "status"
     WHERE "id" = $1;`;
-  console.log('marc');
-  
+  // console.log('todo router PUT');
+
   pool
       .query(queryText, [id])
       .then(() => {

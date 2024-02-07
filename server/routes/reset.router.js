@@ -6,7 +6,7 @@ const pool = require('../modules/pool.js');
 router.put('/', (req, res) => {
   const updateTask = req.body;
   const queryText = `UPDATE "weekend-to-do-app" SET "status" = FALSE;`;
-  console.log('louis');
+  // console.log('reset router PUT');
 
   pool
     .query(queryText)

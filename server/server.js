@@ -1,7 +1,9 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const todoRouter = require('./routes/todo.router.js');
-const resetRouter = require('./routes/reset.router.js')
+const resetRouter = require('./routes/reset.router.js');
 const PORT = process.env.PORT || 5001;
 
 /** ---------- MIDDLEWARE ---------- **/
@@ -13,6 +15,6 @@ app.use('/api/todo', todoRouter);
 app.use('/api/reset', resetRouter);
 
 /** ---------- START SERVER ---------- **/
-app.listen(PORT,  () => {
-    console.log('Listening on port: ', PORT);
+app.listen(PORT, () => {
+  console.log('Listening on port: ', PORT);
 });
